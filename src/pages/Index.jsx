@@ -1,6 +1,6 @@
 // Complete the Index page component here
 // Use chakra-ui
-import { Box, Flex, Heading, Text, Button, Image, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Button, Grid, GridItem, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { FaGift, FaCalendarAlt } from "react-icons/fa";
 
 const holidays = [
@@ -52,18 +52,27 @@ const Index = () => {
       <Text fontSize="xl" mb={6} textAlign="center" fontStyle="italic" color="brand.700">
         Discover enchanting gifts for every memorable occasion!
       </Text>
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+      <Grid templateColumns="repeat(4, 1fr)" gap={4}>
         {holidays.map((holiday, index) => (
-          <GridItem key={index} w="100%" boxShadow="md" p="6" rounded="md" bg="white">
-            <Flex alignItems="center" justifyContent="space-between">
-              <Box>
-                <Heading size="md">{holiday.name}</Heading>
-                <Text color="gray.500">{holiday.date}</Text>
-              </Box>
-              <Button colorScheme="pink" leftIcon={<FaGift />}>
-                Shop Now
-              </Button>
-            </Flex>
+          <GridItem key={index} w="100%" boxShadow="lg" p="4" rounded="lg" bg="white">
+            <Menu>
+              <MenuButton as={Button} rightIcon={<FaCalendarAlt />} colorScheme="teal">
+                {holiday.name}
+              </MenuButton>
+              <MenuList>
+                <MenuItem>Gifts</MenuItem>
+                <MenuItem>Decorations</MenuItem>
+                <MenuItem>Special Offers</MenuItem>
+              </MenuList>
+              <Flex direction="column" mt="2">
+                <Text fontSize="sm" color="gray.600">
+                  {holiday.date}
+                </Text>
+                <Button mt="2" colorScheme="orange" leftIcon={<FaGift />}>
+                  Explore
+                </Button>
+              </Flex>
+            </Menu>
           </GridItem>
         ))}
       </Grid>
