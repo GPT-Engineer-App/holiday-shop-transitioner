@@ -46,11 +46,11 @@ const holidays = [
 const Index = () => {
   return (
     <Box p={5}>
-      <Heading mb={4} textAlign="center">
-        Holiday Specials
+      <Heading mb={4} textAlign="center" color="brand.800">
+        Welcome to TimelyTreasureTrove
       </Heading>
-      <Text fontSize="lg" mb={6} textAlign="center">
-        Find the perfect gifts for every holiday!
+      <Text fontSize="xl" mb={6} textAlign="center" fontStyle="italic" color="brand.700">
+        Discover enchanting gifts for every memorable occasion!
       </Text>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {holidays.map((holiday, index) => (
