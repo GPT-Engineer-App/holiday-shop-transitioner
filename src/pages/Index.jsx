@@ -1,5 +1,6 @@
 // Complete the Index page component here
 // Use chakra-ui
+import React from 'react';
 import { Box, Flex, Heading, Text, Button, Grid, GridItem, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { FaGift, FaCalendarAlt } from "react-icons/fa";
 
@@ -46,15 +47,15 @@ const holidays = [
 const Index = () => {
   return (
     <Box p={5}>
-      <Heading mb={4} textAlign="center" color="brand.800">
-        Welcome to TimelyTreasureTrove
+      <Heading mb={4} textAlign="center" color="brand.800" fontSize="2xl">
+        Welcome to Timely Treasure Trove
       </Heading>
-      <Text fontSize="xl" mb={6} textAlign="center" fontStyle="italic" color="brand.700">
-        Discover enchanting gifts for every memorable occasion!
+      <Text fontSize="lg" mb={6} textAlign="center" fontStyle="italic" color="brand.700">
+        Find the perfect gifts for every special day in your life!
       </Text>
-      <Grid templateColumns="repeat(4, 1fr)" gap={4}>
+      <Grid templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }} gap={6}>
         {holidays.map((holiday, index) => (
-          <GridItem key={index} w="100%" boxShadow="lg" p="4" rounded="lg" bg="white">
+          <GridItem key={index} w="100%" boxShadow="lg" p="4" rounded="lg" bg="white" as={React.memo}>
             <Menu>
               <MenuButton as={Button} rightIcon={<FaCalendarAlt />} colorScheme="teal">
                 {holiday.name}
